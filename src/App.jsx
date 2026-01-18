@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { GameHeader } from "./components/GameHeader";
 import { Quiz } from "./components/Quiz";
 
 export default function App() {
+  const [score, setScore] = useState(0);
+  const [wrong, setWrong] = useState(0);
+
   const questions = [
     {
       question: "Who won the NBA finals in 2023",
@@ -12,8 +16,18 @@ export default function App() {
 
   return (
     <>
-      <GameHeader score={6} mistakes={1} questions={0} />
-      <Quiz questions={questions} />
+      <GameHeader
+        score={score}
+        setScore={setScore}
+        mistakes={wrong}
+        questions={0}
+      />
+      <Quiz
+        questions={questions}
+        score={score}
+        setScore={setScore}
+        setWrong={setWrong}
+      />
     </>
   );
 }
