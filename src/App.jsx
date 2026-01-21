@@ -37,6 +37,7 @@ export default function App() {
         setQuestionIndex={setQuestionIndex}
         questionIndex={questionIndex}
         score={score}
+        mistakes={wrong}
         setScore={setScore}
         setWrong={setWrong}
       />
