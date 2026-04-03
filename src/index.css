@@ -1,4 +1,362 @@
-.main-container {
-  border: 1px solid black;
-  margin-bottom: 1rem;
+/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+/* ─── Design Tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Colors */
+  --court-black:   #0a0a0f;
+  --court-surface: #111118;
+  --surface-rim:   #1e1e2a;
+  --surface-lift:  #252535;
+  --nba-orange:    #f87320;
+  --nba-orange-dim:#7a3a10;
+  --nba-red:       #c8102e;
+  --nba-red-dim:   #6e0a19;
+  --nba-green:     #16a34a;
+  --nba-green-dim: #0e5c2c;
+  --chalk-white:   #f5f0e8;
+  --chalk-dim:     #9e9a93;
+  --led-blue:      #00b4d8;
+  --amber:         #f59e0b;
+  --gold:          #ffd700;
+  --gold-dim:      #8a7300;
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+  --ease-snap:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ─── Global Reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--court-black);
+  color: var(--chalk-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Scanline texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Court floor gradient backdrop */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(248, 115, 32, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(0, 180, 216, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Typography ───────────────────────────────────────────────────────────── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400; /* Bebas Neue is inherently bold */
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* ─── Stat Block ───────────────────────────────────────────────────────────── */
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-xs) var(--space-md);
+  background: var(--surface-rim);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  min-width: 72px;
+}
+
+.stat-block__label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--chalk-dim);
+}
+
+.stat-block__value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--chalk-white);
+}
+
+.stat-block--orange .stat-block__value { color: var(--nba-orange); }
+.stat-block--red    .stat-block__value { color: var(--nba-red); }
+.stat-block--blue   .stat-block__value { color: var(--led-blue); }
+.stat-block--gold   .stat-block__value { color: var(--gold); }
+
+/* ─── Answer Buttons ───────────────────────────────────────────────────────── */
+.btn-answer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  padding: var(--space-lg) var(--space-lg);
+  background: var(--surface-rim);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  color: var(--chalk-white);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s var(--ease-snap);
+  text-align: left;
+}
+
+.btn-answer__letter {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.06);
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.15s ease;
+}
+
+.btn-answer__text {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-answer__prefix {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--nba-orange);
+  min-width: 20px;
+  flex-shrink: 0;
+}
+
+.btn-answer:hover {
+  background: var(--surface-lift);
+  border-color: rgba(248, 115, 32, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-answer:hover .btn-answer__letter {
+  color: rgba(248, 115, 32, 0.08);
+}
+
+.btn-answer:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+/* Answer feedback states */
+.btn-answer--correct {
+  background: var(--nba-green-dim) !important;
+  border-color: var(--nba-green) !important;
+  animation: flash-correct 0.35s var(--ease-snap);
+}
+
+.btn-answer--wrong {
+  background: var(--nba-red-dim) !important;
+  border-color: var(--nba-red) !important;
+  animation: flash-wrong 0.35s var(--ease-snap);
+}
+
+.btn-answer:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@keyframes flash-correct {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes flash-wrong {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-6px); }
+  50%  { transform: translateX(5px); }
+  80%  { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+/* ─── Primary CTA Button ───────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  background: var(--nba-orange);
+  color: var(--court-black);
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.1s var(--ease-bounce),
+    box-shadow 0.15s ease;
+  box-shadow: 0 4px 24px rgba(248, 115, 32, 0.3);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #ff8c35;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(248, 115, 32, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 12px rgba(248, 115, 32, 0.2);
+}
+
+/* ─── Ghost Button ─────────────────────────────────────────────────────────── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  background: transparent;
+  color: var(--chalk-dim);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--surface-rim);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  color: var(--chalk-white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Panel Entrance Animation ─────────────────────────────────────────────── */
+@keyframes panel-rise {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel-rise {
+  animation: panel-rise 0.4s var(--ease-snap) both;
+}
+
+/* ─── Badge ────────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.badge--gold {
+  background: rgba(255, 215, 0, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.badge--fire {
+  background: rgba(248, 115, 32, 0.12);
+  color: var(--nba-orange);
+  border: 1px solid rgba(248, 115, 32, 0.3);
+}
+
+/* ─── Divider ──────────────────────────────────────────────────────────────── */
+.led-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--nba-orange) 30%,
+    var(--nba-orange) 70%,
+    transparent 100%
+  );
+  opacity: 0.4;
+  margin: var(--space-lg) 0;
 }
