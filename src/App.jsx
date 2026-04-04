@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { GameHeader } from "./components/GameHeader";
 import { Quiz } from "./components/Quiz";
+import { ModeSelector } from "./components/ModeSelector";
 import { fetchDynamicQuestions } from "./services/quizService";
 
 export default function App() {
-  const [gameState, setGameState] = useState("menu"); // 'menu', 'loading', 'playing', 'game_over'
+  const [gameState, setGameState] = useState("menu"); // 'menu', 'mode_select', 'loading', 'playing', 'game_over'
+  const [gameMode, setGameMode] = useState("random");  // 'legends' | 'modern' | 'random'
   const [score, setScore] = useState(0);
   const [wrong, setWrong] = useState(0);
   const [streak, setStreak] = useState(0);
@@ -12,7 +14,8 @@ export default function App() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questions, setQuestions] = useState([]);
 
-  const startGame = async () => {
+  const handleModeSelect = async (mode) => {
+    setGameMode(mode);
     setGameState("loading");
     setScore(0);
     setWrong(0);
@@ -20,13 +23,17 @@ export default function App() {
     setHighestStreak(0);
     setQuestionIndex(0);
 
-    const fetchedQuestions = await fetchDynamicQuestions(4);
+    const fetchedQuestions = await fetchDynamicQuestions(4, mode);
     setQuestions(fetchedQuestions);
     setGameState("playing");
   };
 
   const handleGameOver = () => {
     setGameState("game_over");
+  };
+
+  const goToModeSelect = () => {
+    setGameState("mode_select");
   };
 
   return (
@@ -73,10 +80,14 @@ export default function App() {
 
           <div className="led-divider" style={{ width: "100%", maxWidth: "300px" }} />
 
-          <button className="btn-primary" onClick={startGame}>
+          <button id="btn-enter-court" className="btn-primary" onClick={goToModeSelect}>
             ENTER COURT
           </button>
         </main>
+      )}
+
+      {gameState === "mode_select" && (
+        <ModeSelector onModeSelect={handleModeSelect} />
       )}
 
       {gameState === "loading" && (
@@ -176,7 +187,7 @@ export default function App() {
 
           <div className="led-divider" style={{ width: "100%", maxWidth: "300px" }} />
 
-          <button className="btn-primary" onClick={startGame}>
+          <button id="btn-play-again" className="btn-primary" onClick={goToModeSelect}>
             PLAY AGAIN
           </button>
         </main>

@@ -1,0 +1,362 @@
+[
+  {
+    "name": "LeBron James",
+    "teams": ["Cleveland Cavaliers", "Miami Heat", "Los Angeles Lakers"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Stephen Curry",
+    "teams": ["Golden State Warriors"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Kevin Durant",
+    "teams": [
+      "Oklahoma City Thunder",
+      "Golden State Warriors",
+      "Brooklyn Nets",
+      "Phoenix Suns"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Nikola Jokic",
+    "teams": ["Denver Nuggets"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Luka Doncic",
+    "teams": ["Dallas Mavericks"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Giannis Antetokounmpo",
+    "teams": ["Milwaukee Bucks"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Jayson Tatum",
+    "teams": ["Boston Celtics"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Joel Embiid",
+    "teams": ["Philadelphia 76ers"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Shai Gilgeous-Alexander",
+    "teams": ["Los Angeles Clippers", "Oklahoma City Thunder"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Anthony Edwards",
+    "teams": ["Minnesota Timberwolves"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Damian Lillard",
+    "teams": ["Portland Trail Blazers", "Milwaukee Bucks"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Devin Booker",
+    "teams": ["Phoenix Suns"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Anthony Davis",
+    "teams": ["New Orleans Pelicans", "Los Angeles Lakers"],
+    "era": "modern",
+    "position": "F/C"
+  },
+  {
+    "name": "Ja Morant",
+    "teams": ["Memphis Grizzlies"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Jimmy Butler",
+    "teams": [
+      "Chicago Bulls",
+      "Minnesota Timberwolves",
+      "Philadelphia 76ers",
+      "Miami Heat"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Kawhi Leonard",
+    "teams": ["San Antonio Spurs", "Toronto Raptors", "LA Clippers"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Paul George",
+    "teams": [
+      "Indiana Pacers",
+      "Oklahoma City Thunder",
+      "LA Clippers",
+      "Philadelphia 76ers"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Tyrese Haliburton",
+    "teams": ["Sacramento Kings", "Indiana Pacers"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Victor Wembanyama",
+    "teams": ["San Antonio Spurs"],
+    "era": "modern",
+    "position": "C/F"
+  },
+  {
+    "name": "Bam Adebayo",
+    "teams": ["Miami Heat"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Domantas Sabonis",
+    "teams": ["Oklahoma City Thunder", "Indiana Pacers", "Sacramento Kings"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "De'Aaron Fox",
+    "teams": ["Sacramento Kings"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Jaylen Brown",
+    "teams": ["Boston Celtics"],
+    "era": "modern",
+    "position": "F/G"
+  },
+  {
+    "name": "Donovan Mitchell",
+    "teams": ["Utah Jazz", "Cleveland Cavaliers"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Jalen Brunson",
+    "teams": ["Dallas Mavericks", "New York Knicks"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Trae Young",
+    "teams": ["Atlanta Hawks"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Zion Williamson",
+    "teams": ["New Orleans Pelicans"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Paolo Banchero",
+    "teams": ["Orlando Magic"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Tyrese Maxey",
+    "teams": ["Philadelphia 76ers"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Scottie Barnes",
+    "teams": ["Toronto Raptors"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "LaMelo Ball",
+    "teams": ["Charlotte Hornets"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Cade Cunningham",
+    "teams": ["Detroit Pistons"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Chet Holmgren",
+    "teams": ["Oklahoma City Thunder"],
+    "era": "modern",
+    "position": "C/F"
+  },
+  {
+    "name": "Alperen Sengun",
+    "teams": ["Houston Rockets"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Brandon Miller",
+    "teams": ["Charlotte Hornets"],
+    "era": "modern",
+    "position": "F"
+  },
+
+  {
+    "name": "Anthony Davis",
+    "teams": ["New Orleans Pelicans", "Los Angeles Lakers"],
+    "era": "modern",
+    "position": "F/C"
+  },
+  {
+    "name": "DeMar DeRozan",
+    "teams": ["Toronto Raptors", "San Antonio Spurs", "Chicago Bulls"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Kyrie Irving",
+    "teams": [
+      "Cleveland Cavaliers",
+      "Boston Celtics",
+      "Brooklyn Nets",
+      "Dallas Mavericks"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+
+  {
+    "name": "Michael Jordan",
+    "teams": ["Chicago Bulls", "Washington Wizards"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Shaquille O'Neal",
+    "teams": [
+      "Orlando Magic",
+      "Los Angeles Lakers",
+      "Miami Heat",
+      "Phoenix Suns",
+      "Cleveland Cavaliers",
+      "Boston Celtics"
+    ],
+    "era": "legends",
+    "position": "C"
+  },
+  {
+    "name": "Wilt Chamberlain",
+    "teams": [
+      "Philadelphia Warriors",
+      "San Francisco Warriors",
+      "Philadelphia 76ers",
+      "Los Angeles Lakers"
+    ],
+    "era": "legends",
+    "position": "C"
+  },
+  {
+    "name": "Kevin Garnett",
+    "teams": ["Minnesota Timberwolves", "Boston Celtics", "Brooklyn Nets"],
+    "era": "legends",
+    "position": "F/C"
+  },
+  {
+    "name": "Allen Iverson",
+    "teams": ["Philadelphia 76ers", "Denver Nuggets", "Detroit Pistons"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Charles Barkley",
+    "teams": ["Philadelphia 76ers", "Phoenix Suns", "Houston Rockets"],
+    "era": "legends",
+    "position": "F"
+  },
+  {
+    "name": "Hakeem Olajuwon",
+    "teams": ["Houston Rockets", "Toronto Raptors"],
+    "era": "legends",
+    "position": "C"
+  },
+  {
+    "name": "Clyde Drexler",
+    "teams": ["Portland Trail Blazers", "Houston Rockets"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Gary Payton",
+    "teams": [
+      "Seattle SuperSonics",
+      "Milwaukee Bucks",
+      "Los Angeles Lakers",
+      "Miami Heat"
+    ],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Jason Kidd",
+    "teams": [
+      "Dallas Mavericks",
+      "Phoenix Suns",
+      "New Jersey Nets",
+      "New York Knicks"
+    ],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Ray Allen",
+    "teams": [
+      "Milwaukee Bucks",
+      "Seattle SuperSonics",
+      "Boston Celtics",
+      "Miami Heat"
+    ],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Tracy McGrady",
+    "teams": ["Toronto Raptors", "Orlando Magic", "Houston Rockets"],
+    "era": "legends",
+    "position": "G/F"
+  },
+  {
+    "name": "Vince Carter",
+    "teams": [
+      "Toronto Raptors",
+      "New Jersey Nets",
+      "Orlando Magic",
+      "Dallas Mavericks"
+    ],
+    "era": "legends",
+    "position": "G/F"
+  }
+]

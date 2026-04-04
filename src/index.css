@@ -1,38 +1,38 @@
 /* ─── Google Fonts ─────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap");
 
 /* ─── Design Tokens ────────────────────────────────────────────────────────── */
 :root {
   /* Colors */
-  --court-black:   #0a0a0f;
+  --court-black: #0a0a0f;
   --court-surface: #111118;
-  --surface-rim:   #1e1e2a;
-  --surface-lift:  #252535;
-  --nba-orange:    #f87320;
-  --nba-orange-dim:#7a3a10;
-  --nba-red:       #c8102e;
-  --nba-red-dim:   #6e0a19;
-  --nba-green:     #16a34a;
+  --surface-rim: #1e1e2a;
+  --surface-lift: #252535;
+  --nba-orange: #f87320;
+  --nba-orange-dim: #7a3a10;
+  --nba-red: #c8102e;
+  --nba-red-dim: #6e0a19;
+  --nba-green: #16a34a;
   --nba-green-dim: #0e5c2c;
-  --chalk-white:   #f5f0e8;
-  --chalk-dim:     #9e9a93;
-  --led-blue:      #00b4d8;
-  --amber:         #f59e0b;
-  --gold:          #ffd700;
-  --gold-dim:      #8a7300;
+  --chalk-white: #f5f0e8;
+  --chalk-dim: #9e9a93;
+  --led-blue: #00b4d8;
+  --amber: #f59e0b;
+  --gold: #ffd700;
+  --gold-dim: #8a7300;
 
   /* Spacing */
-  --space-xs:  4px;
-  --space-sm:  8px;
-  --space-md:  16px;
-  --space-lg:  24px;
-  --space-xl:  40px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 37px;
   --space-2xl: 64px;
   --space-3xl: 96px;
 
   /* Typography */
-  --font-display: 'Bebas Neue', 'Impact', sans-serif;
-  --font-mono:    'DM Mono', 'Courier New', monospace;
+  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-mono: "DM Mono", "Courier New", monospace;
 
   /* Radii */
   --radius-sm: 4px;
@@ -40,12 +40,14 @@
   --radius-lg: 16px;
 
   /* Transitions */
-  --ease-snap:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ─── Global Reset ─────────────────────────────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -73,7 +75,7 @@ body {
 
 /* Scanline texture overlay */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background-image: repeating-linear-gradient(
@@ -89,12 +91,20 @@ body::before {
 
 /* Court floor gradient backdrop */
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(248, 115, 32, 0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(0, 180, 216, 0.04) 0%, transparent 60%);
+    radial-gradient(
+      ellipse 80% 50% at 50% 100%,
+      rgba(248, 115, 32, 0.06) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 80% 0%,
+      rgba(0, 180, 216, 0.04) 0%,
+      transparent 60%
+    );
   pointer-events: none;
   z-index: 0;
 }
@@ -108,7 +118,9 @@ body::after {
 }
 
 /* ─── Typography ───────────────────────────────────────────────────────────── */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-display);
   font-weight: 400; /* Bebas Neue is inherently bold */
   letter-spacing: 0.02em;
@@ -144,10 +156,18 @@ h1, h2, h3 {
   color: var(--chalk-white);
 }
 
-.stat-block--orange .stat-block__value { color: var(--nba-orange); }
-.stat-block--red    .stat-block__value { color: var(--nba-red); }
-.stat-block--blue   .stat-block__value { color: var(--led-blue); }
-.stat-block--gold   .stat-block__value { color: var(--gold); }
+.stat-block--orange .stat-block__value {
+  color: var(--nba-orange);
+}
+.stat-block--red .stat-block__value {
+  color: var(--nba-red);
+}
+.stat-block--blue .stat-block__value {
+  color: var(--led-blue);
+}
+.stat-block--gold .stat-block__value {
+  color: var(--gold);
+}
 
 /* ─── Answer Buttons ───────────────────────────────────────────────────────── */
 .btn-answer {
@@ -234,17 +254,33 @@ h1, h2, h3 {
 }
 
 @keyframes flash-correct {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(1.02); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes flash-wrong {
-  0%   { transform: translateX(0); }
-  20%  { transform: translateX(-6px); }
-  50%  { transform: translateX(5px); }
-  80%  { transform: translateX(-3px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  80% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* ─── Primary CTA Button ───────────────────────────────────────────────────── */
@@ -296,7 +332,9 @@ h1, h2, h3 {
   border: 1px solid var(--surface-rim);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
   text-decoration: none;
 }
 
