@@ -38,27 +38,27 @@ menu → mode_select → game_type_select → loading → playing → game_over
 
 ### State Values
 
-| State | Description |
-|---|---|
-| `menu` | Landing screen with the "ENTER COURT" CTA |
-| `mode_select` | Era picker (`ModeSelector`) |
-| `game_type_select` | Game mode picker (`GameTypeSelector`) |
-| `loading` | Async question fetch (shows "Scouting Players...") |
-| `playing` | Active quiz (`Quiz` component) |
-| `game_over` | Final stats screen with mode-aware messaging |
+| State              | Description                                        |
+| ------------------ | -------------------------------------------------- |
+| `menu`             | Landing screen with the "ENTER COURT" CTA          |
+| `mode_select`      | Era picker (`ModeSelector`)                        |
+| `game_type_select` | Game mode picker (`GameTypeSelector`)              |
+| `loading`          | Async question fetch (shows "Scouting Players...") |
+| `playing`          | Active quiz (`Quiz` component)                     |
+| `game_over`        | Final stats screen with mode-aware messaging       |
 
 ### Key State Variables
 
-| Variable | Type | Purpose |
-|---|---|---|
-| `gameMode` | string | `'legends'` \| `'modern'` \| `'random'` |
-| `gameType` | string | `'classic'` \| `'time_attack'` \| `'sudden_death'` |
-| `score` | number | Correct answers this session |
-| `wrong` | number | Mistakes made this session |
-| `streak` | number | Current consecutive correct streak |
-| `highestStreak` | number | Best streak for the session |
-| `questions` | array | Fetched question objects |
-| `questionIndex` | number | Pointer into the questions array |
+| Variable        | Type   | Purpose                                            |
+| --------------- | ------ | -------------------------------------------------- |
+| `gameMode`      | string | `'legends'` \| `'modern'` \| `'random'`            |
+| `gameType`      | string | `'classic'` \| `'time_attack'` \| `'sudden_death'` |
+| `score`         | number | Correct answers this session                       |
+| `wrong`         | number | Mistakes made this session                         |
+| `streak`        | number | Current consecutive correct streak                 |
+| `highestStreak` | number | Best streak for the session                        |
+| `questions`     | array  | Fetched question objects                           |
+| `questionIndex` | number | Pointer into the questions array                   |
 
 ### Question Fetching Logic
 
@@ -68,6 +68,7 @@ menu → mode_select → game_type_select → loading → playing → game_over
 ### Game Over Screen
 
 The game over screen is **mode-aware**:
+
 - `time_attack` → "Times Up!" in blue
 - `sudden_death` → "💀 Eliminated" in red
 - `classic` → "Buzzer Beater" in red
@@ -87,10 +88,10 @@ The **Errors** stat block is **hidden for Time Attack** (no lives concept). The 
 
 #### Live Stat Blocks (playing only)
 
-| Block | Always shown | Notes |
-|---|---|---|
-| Score | ✅ | Orange accent |
-| Streak 🔥 | ✅ | Turns gold when streak ≥ 3, blue otherwise |
+| Block      | Always shown       | Notes                                                                     |
+| ---------- | ------------------ | ------------------------------------------------------------------------- |
+| Score      | ✅                 | Orange accent                                                             |
+| Streak 🔥  | ✅                 | Turns gold when streak ≥ 3, blue otherwise                                |
 | Lives/Life | ❌ for Time Attack | Shows `❤️` hearts; **1 heart** for Sudden Death, **3 hearts** for Classic |
 
 > **Sudden Death** enforces exactly **1 heart** in the UI. Hearts dim (opacity 0.15) as mistakes accumulate.
@@ -103,14 +104,15 @@ The **Errors** stat block is **hidden for Time Attack** (no lives concept). The 
 
 #### Era Cards (grid layout, 2 columns)
 
-| Mode ID | Label | Year Stamp | Tagline | Accent |
-|---|---|---|---|---|
-| `legends` | Legends Era | `'84 — '10` | Jordan · Kobe · Shaq · Bird | Gold |
-| `modern` | Modern Era | `'11 — Now` | LeBron · Steph · Jokic · Luka | LED Blue |
+| Mode ID   | Label       | Year Stamp  | Tagline                       | Accent   |
+| --------- | ----------- | ----------- | ----------------------------- | -------- |
+| `legends` | Legends Era | `'84 — '10` | Jordan · Kobe · Shaq · Bird   | Gold     |
+| `modern`  | Modern Era  | `'11 — Now` | LeBron · Steph · Jokic · Luka | LED Blue |
 
 #### Hard Mode Entry Point
 
 Below the era grid is a special **"◈ ELITE JOURNEYMAN DRAFT — HARD MODE"** ghost button:
+
 - Styled in **NBA Red**
 - Sets `gameMode = 'random'` and advances to `game_type_select`
 - Represents the hardest player pool (mixed eras, journeyman players)
@@ -118,6 +120,7 @@ Below the era grid is a special **"◈ ELITE JOURNEYMAN DRAFT — HARD MODE"** g
 #### Sub-Component: `EraCard`
 
 Each era card has:
+
 - Top **accent strip** (3px, lights up on hover)
 - **Year watermark** (oversized, renders behind text, lights up on hover)
 - **Tagline** (monospace, player names)
@@ -132,13 +135,14 @@ Each era card has:
 
 #### Game Type Cards (vertical list)
 
-| ID | Label | Tagline | Icon | Accent |
-|---|---|---|---|---|
-| `classic` | Classic | 3 lives. Pure hoops. | 🏀 | NBA Orange |
-| `time_attack` | Time Attack | 60 seconds. Clock is ticking. | ⚡ | LED Blue |
-| `sudden_death` | Sudden Death | One wrong. Game over. | 💀 | NBA Red |
+| ID             | Label        | Tagline                       | Icon | Accent     |
+| -------------- | ------------ | ----------------------------- | ---- | ---------- |
+| `classic`      | Classic      | 3 lives. Pure hoops.          | 🏀   | NBA Orange |
+| `time_attack`  | Time Attack  | 60 seconds. Clock is ticking. | ⚡   | LED Blue   |
+| `sudden_death` | Sudden Death | One wrong. Game over.         | 💀   | NBA Red    |
 
 Each card features:
+
 - **Left accent bar** (vertical, 3px) that lights up on hover
 - **Large watermark icon** (72px, subtle opacity) in the background
 - Mode label in display font + tagline in monospace
@@ -154,39 +158,41 @@ The **core gameplay component.** Handles all question rendering, answer processi
 
 #### Props
 
-| Prop | Type | Purpose |
-|---|---|---|
-| `questions` | array | The question pool |
-| `questionIndex` | number | Current question pointer |
-| `setQuestionIndex` | fn | Advance to next question |
-| `score` | number | Live score |
-| `setScore` | fn | Increment score |
-| `mistakes` | number | Wrong answer count |
-| `setWrong` | fn | Increment mistakes |
-| `streak` / `setStreak` | number/fn | Current streak |
-| `highestStreak` / `setHighestStreak` | number/fn | Best streak |
-| `gameType` | string | `'classic'` \| `'time_attack'` \| `'sudden_death'` |
-| `onGameOver` | fn | Callback to transition `App` to `game_over` |
+| Prop                                 | Type      | Purpose                                            |
+| ------------------------------------ | --------- | -------------------------------------------------- |
+| `questions`                          | array     | The question pool                                  |
+| `questionIndex`                      | number    | Current question pointer                           |
+| `setQuestionIndex`                   | fn        | Advance to next question                           |
+| `score`                              | number    | Live score                                         |
+| `setScore`                           | fn        | Increment score                                    |
+| `mistakes`                           | number    | Wrong answer count                                 |
+| `setWrong`                           | fn        | Increment mistakes                                 |
+| `streak` / `setStreak`               | number/fn | Current streak                                     |
+| `highestStreak` / `setHighestStreak` | number/fn | Best streak                                        |
+| `gameType`                           | string    | `'classic'` \| `'time_attack'` \| `'sudden_death'` |
+| `onGameOver`                         | fn        | Callback to transition `App` to `game_over`        |
 
 #### Timer Logic
 
 **Per-question timer** (Classic & Sudden Death only):
+
 - 15 seconds per question
 - Timeout triggers `handleWrongAnswer(-1)` (index -1 = timeout)
 - Timer resets on each question advance
 
 **Global countdown** (Time Attack only):
+
 - 60-second global clock
 - Counts down independently of question navigation
 - When it hits 0 → game over
 
 #### Game-Over Conditions
 
-| Mode | Condition |
-|---|---|
-| Classic | `mistakes >= 3` OR all questions exhausted |
-| Sudden Death | `mistakes >= 1` OR all questions exhausted |
-| Time Attack | `globalTime <= 0` OR all 100 questions exhausted |
+| Mode         | Condition                                        |
+| ------------ | ------------------------------------------------ |
+| Classic      | `mistakes >= 3` OR all questions exhausted       |
+| Sudden Death | `mistakes >= 1` OR all questions exhausted       |
+| Time Attack  | `globalTime <= 0` OR all 100 questions exhausted |
 
 #### Answer Feedback
 
@@ -204,11 +210,13 @@ The **core gameplay component.** Handles all question rendering, answer processi
 #### Sub-Components (internal)
 
 **`GlobalCountdownBar`**
+
 - Shows "⏱ Time Attack" label + large seconds counter
 - Bar color shifts: Blue → Amber (≤15s) → Red (≤8s)
 - Matching glow on bar and number
 
 **`SuddenDeathIndicator`**
+
 - Pill badge: `💀 Sudden Death — One Wrong & It's Over`
 - Red border, subtle red background
 
@@ -230,11 +238,11 @@ The **core gameplay component.** Handles all question rendering, answer processi
 
 ## Game Modes
 
-| Mode | Lives | Timer | Pool Size | End Condition |
-|---|---|---|---|---|
-| **Classic** | 3 ❤️❤️❤️ | 15s per question | 10 | 3 mistakes OR out of questions |
-| **Time Attack** | ∞ (no lives) | 60s global | 100 | Timer hits 0 OR out of questions |
-| **Sudden Death** | 1 ❤️ | 15s per question | 10 | 1 mistake OR out of questions |
+| Mode             | Lives        | Timer            | Pool Size | End Condition                    |
+| ---------------- | ------------ | ---------------- | --------- | -------------------------------- |
+| **Classic**      | 3 ❤️❤️❤️     | 15s per question | 10        | 3 mistakes OR out of questions   |
+| **Time Attack**  | ∞ (no lives) | 60s global       | 100       | Timer hits 0 OR out of questions |
+| **Sudden Death** | 1 ❤️         | 15s per question | 10        | 1 mistake OR out of questions    |
 
 ---
 
@@ -242,10 +250,10 @@ The **core gameplay component.** Handles all question rendering, answer processi
 
 ### Player Pools (`src/data/`)
 
-| File | Era | Notes |
-|---|---|---|
-| `legends.json` | `'84 – '10` | Legends-era players (Jordan, Kobe, Shaq, etc.) |
-| `hard-mode.json` | Mixed | Elite Journeyman pool — toughest player set |
+| File             | Era         | Notes                                          |
+| ---------------- | ----------- | ---------------------------------------------- |
+| `legends.json`   | `'84 – '10` | Legends-era players (Jordan, Kobe, Shaq, etc.) |
+| `hard-mode.json` | Mixed       | Elite Journeyman pool — toughest player set    |
 
 > Modern era player data is also part of the pool (handled by `quizService.js`).
 
@@ -267,35 +275,35 @@ The app uses a custom CSS design token system (`index.css`) with an NBA scoreboa
 
 ### Color Tokens
 
-| Token | Usage |
-|---|---|
-| `--nba-orange` | Primary accent, Classic mode |
-| `--nba-red` | Errors, Sudden Death mode |
-| `--led-blue` | Time Attack mode |
+| Token                   | Usage                          |
+| ----------------------- | ------------------------------ |
+| `--nba-orange`          | Primary accent, Classic mode   |
+| `--nba-red`             | Errors, Sudden Death mode      |
+| `--led-blue`            | Time Attack mode               |
 | `--gold` / `--gold-dim` | Streak highlights, Legends era |
-| `--chalk-white` | Primary text |
-| `--chalk-dim` | Secondary/muted text |
+| `--chalk-white`         | Primary text                   |
+| `--chalk-dim`           | Secondary/muted text           |
 
 ### Typography
 
-| Token | Font | Usage |
-|---|---|---|
+| Token            | Font       | Usage                           |
+| ---------------- | ---------- | ------------------------------- |
 | `--font-display` | Bebas Neue | Headings, scores, large numbers |
-| `--font-mono` | DM Mono | Labels, taglines, metadata |
-| Body | Inter | General text |
+| `--font-mono`    | DM Mono    | Labels, taglines, metadata      |
+| Body             | Inter      | General text                    |
 
 ### Key CSS Classes
 
-| Class | Description |
-|---|---|
-| `.panel-rise` | Fade-in + slide-up entrance animation for main panels |
-| `.stat-block` | Small scoreboard tile (label + value) |
-| `.stat-block--orange/red/blue/gold` | Color variants of stat tiles |
-| `.btn-primary` | Large orange CTA button |
-| `.btn-ghost` | Transparent bordered button |
-| `.btn-answer` | Multiple-choice answer button |
-| `.btn-answer--correct` | Green flash feedback state |
-| `.btn-answer--wrong` | Red flash feedback state |
-| `.led-divider` | Horizontal orange gradient rule |
-| `.badge` | Small inline badge (e.g., streak fire badge) |
-| `.badge--fire` | Orange fire streak badge |
+| Class                               | Description                                           |
+| ----------------------------------- | ----------------------------------------------------- |
+| `.panel-rise`                       | Fade-in + slide-up entrance animation for main panels |
+| `.stat-block`                       | Small scoreboard tile (label + value)                 |
+| `.stat-block--orange/red/blue/gold` | Color variants of stat tiles                          |
+| `.btn-primary`                      | Large orange CTA button                               |
+| `.btn-ghost`                        | Transparent bordered button                           |
+| `.btn-answer`                       | Multiple-choice answer button                         |
+| `.btn-answer--correct`              | Green flash feedback state                            |
+| `.btn-answer--wrong`                | Red flash feedback state                              |
+| `.led-divider`                      | Horizontal orange gradient rule                       |
+| `.badge`                            | Small inline badge (e.g., streak fire badge)          |
+| `.badge--fire`                      | Orange fire streak badge                              |
