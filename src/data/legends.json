@@ -1,0 +1,195 @@
+[
+  {
+    "name": "Magic Johnson",
+    "teams": ["Los Angeles Lakers"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Larry Bird",
+    "teams": ["Boston Celtics"],
+    "era": "legends",
+    "position": "F"
+  },
+  {
+    "name": "Kobe Bryant",
+    "teams": ["Los Angeles Lakers"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Tim Duncan",
+    "teams": ["San Antonio Spurs"],
+    "era": "legends",
+    "position": "F/C"
+  },
+  {
+    "name": "Karl Malone",
+    "teams": ["Utah Jazz", "Los Angeles Lakers"],
+    "era": "legends",
+    "position": "F"
+  },
+  {
+    "name": "John Stockton",
+    "teams": ["Utah Jazz"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Dirk Nowitzki",
+    "teams": ["Dallas Mavericks"],
+    "era": "legends",
+    "position": "F"
+  },
+  {
+    "name": "Steve Nash",
+    "teams": ["Phoenix Suns", "Dallas Mavericks", "Los Angeles Lakers"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Reggie Miller",
+    "teams": ["Indiana Pacers"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Patrick Ewing",
+    "teams": ["New York Knicks", "Seattle SuperSonics", "Orlando Magic"],
+    "era": "legends",
+    "position": "C"
+  },
+  {
+    "name": "Dennis Rodman",
+    "teams": [
+      "Detroit Pistons",
+      "San Antonio Spurs",
+      "Chicago Bulls",
+      "Los Angeles Lakers"
+    ],
+    "era": "legends",
+    "position": "F"
+  },
+  {
+    "name": "Scottie Pippen",
+    "teams": ["Chicago Bulls", "Houston Rockets", "Portland Trail Blazers"],
+    "era": "legends",
+    "position": "F"
+  },
+  {
+    "name": "David Robinson",
+    "teams": ["San Antonio Spurs"],
+    "era": "legends",
+    "position": "C"
+  },
+  {
+    "name": "Michael Jordan",
+    "teams": ["Chicago Bulls", "Washington Wizards"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Shaquille O'Neal",
+    "teams": [
+      "Orlando Magic",
+      "Los Angeles Lakers",
+      "Miami Heat",
+      "Phoenix Suns",
+      "Cleveland Cavaliers",
+      "Boston Celtics"
+    ],
+    "era": "legends",
+    "position": "C"
+  },
+  {
+    "name": "Wilt Chamberlain",
+    "teams": [
+      "Philadelphia Warriors",
+      "San Francisco Warriors",
+      "Philadelphia 76ers",
+      "Los Angeles Lakers"
+    ],
+    "era": "legends",
+    "position": "C"
+  },
+  {
+    "name": "Kevin Garnett",
+    "teams": ["Minnesota Timberwolves", "Boston Celtics", "Brooklyn Nets"],
+    "era": "legends",
+    "position": "F/C"
+  },
+  {
+    "name": "Allen Iverson",
+    "teams": ["Philadelphia 76ers", "Denver Nuggets", "Detroit Pistons"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Charles Barkley",
+    "teams": ["Philadelphia 76ers", "Phoenix Suns", "Houston Rockets"],
+    "era": "legends",
+    "position": "F"
+  },
+  {
+    "name": "Hakeem Olajuwon",
+    "teams": ["Houston Rockets", "Toronto Raptors"],
+    "era": "legends",
+    "position": "C"
+  },
+  {
+    "name": "Clyde Drexler",
+    "teams": ["Portland Trail Blazers", "Houston Rockets"],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Gary Payton",
+    "teams": [
+      "Seattle SuperSonics",
+      "Milwaukee Bucks",
+      "Los Angeles Lakers",
+      "Miami Heat"
+    ],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Jason Kidd",
+    "teams": [
+      "Dallas Mavericks",
+      "Phoenix Suns",
+      "New Jersey Nets",
+      "New York Knicks"
+    ],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Ray Allen",
+    "teams": [
+      "Milwaukee Bucks",
+      "Seattle SuperSonics",
+      "Boston Celtics",
+      "Miami Heat"
+    ],
+    "era": "legends",
+    "position": "G"
+  },
+  {
+    "name": "Tracy McGrady",
+    "teams": ["Toronto Raptors", "Orlando Magic", "Houston Rockets"],
+    "era": "legends",
+    "position": "G/F"
+  },
+  {
+    "name": "Vince Carter",
+    "teams": [
+      "Toronto Raptors",
+      "New Jersey Nets",
+      "Orlando Magic",
+      "Dallas Mavericks"
+    ],
+    "era": "legends",
+    "position": "G/F"
+  }
+]

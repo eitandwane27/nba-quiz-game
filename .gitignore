@@ -13,6 +13,7 @@ dist-ssr
 *.local
 .env
 .ai-skills
+.PROGRESS.md
 
 # Editor directories and files
 .vscode/*

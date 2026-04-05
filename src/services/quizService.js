@@ -1,4 +1,6 @@
 import players from "../data/players.json";
+import legends from "../data/legends.json";
+import hardModePlayers from "../data/hard-mode.json";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -16,10 +18,15 @@ export async function fetchDynamicQuestions(numQuestions = 4, mode = "random") {
   try {
     // ── Mode routing ─────────────────────────────────────────────────────────
     let pool = [];
+    const allPlayers = [...players, ...legends, ...hardModePlayers];
+
     if (mode === "random") {
-      pool = [...players];
+      pool = hardModePlayers;
+    } else if (mode === "legends") {
+      pool = legends;
     } else {
-      pool = players.filter((p) => p.era === mode);
+      // "modern" mode: use players list, filtering by era to be safe
+      pool = players.filter((p) => p.era === "modern");
     }
 
     if (pool.length === 0) {
@@ -29,8 +36,8 @@ export async function fetchDynamicQuestions(numQuestions = 4, mode = "random") {
     const shuffledPool = shuffle(pool);
     const selected = shuffledPool.slice(0, Math.min(numQuestions, pool.length));
     
-    // Get all unique teams from the entire players list for distractors
-    const allTeams = [...new Set(players.flatMap((p) => p.teams))];
+    // Get all unique teams from both files for distractors
+    const allTeams = [...new Set(allPlayers.flatMap((p) => p.teams))];
 
     return buildQuestions(selected, allTeams);
   } catch (error) {

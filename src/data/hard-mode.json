@@ -1,0 +1,323 @@
+[
+  {
+    "name": "Ronny Turiaf",
+    "teams": [
+      "Los Angeles Lakers",
+      "Golden State Warriors",
+      "New York Knicks",
+      "Washington Wizards",
+      "Miami Heat",
+      "Los Angeles Clippers",
+      "Minnesota Timberwolves"
+    ],
+    "era": "modern",
+    "position": "F/C"
+  },
+  {
+    "name": "Shannon Brown",
+    "teams": [
+      "Cleveland Cavaliers",
+      "Chicago Bulls",
+      "Charlotte Bobcats",
+      "Los Angeles Lakers",
+      "Phoenix Suns",
+      "San Antonio Spurs",
+      "New York Knicks",
+      "Miami Heat"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Chris Copeland",
+    "teams": [
+      "New York Knicks",
+      "Indiana Pacers",
+      "Milwaukee Bucks",
+      "New Orleans Pelicans"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Jannero Pargo",
+    "teams": [
+      "Los Angeles Lakers",
+      "Chicago Bulls",
+      "Toronto Raptors",
+      "New Orleans Hornets",
+      "Atlanta Hawks",
+      "Washington Wizards",
+      "Charlotte Bobcats"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+
+  {
+    "name": "Joel Anthony",
+    "teams": [
+      "Miami Heat",
+      "Boston Celtics",
+      "Detroit Pistons",
+      "San Antonio Spurs"
+    ],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Cartier Martin",
+    "teams": [
+      "Washington Wizards",
+      "Golden State Warriors",
+      "Atlanta Hawks",
+      "Chicago Bulls",
+      "Detroit Pistons"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Lance Thomas",
+    "teams": [
+      "New Orleans Hornets",
+      "Oklahoma City Thunder",
+      "New York Knicks",
+      "Brooklyn Nets"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Ekpe Udoh",
+    "teams": [
+      "Golden State Warriors",
+      "Milwaukee Bucks",
+      "Los Angeles Clippers",
+      "Utah Jazz"
+    ],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Brian Roberts",
+    "teams": [
+      "New Orleans Pelicans",
+      "Charlotte Hornets",
+      "Portland Trail Blazers"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "James Ennis III",
+    "teams": [
+      "Miami Heat",
+      "Memphis Grizzlies",
+      "New Orleans Pelicans",
+      "Detroit Pistons",
+      "Houston Rockets",
+      "Philadelphia 76ers",
+      "Orlando Magic",
+      "Brooklyn Nets",
+      "Los Angeles Clippers"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Henry Sims",
+    "teams": [
+      "New Orleans Pelicans",
+      "Philadelphia 76ers",
+      "Phoenix Suns",
+      "Cleveland Cavaliers",
+      "Brooklyn Nets"
+    ],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Tim Frazier",
+    "teams": [
+      "Philadelphia 76ers",
+      "Portland Trail Blazers",
+      "New Orleans Pelicans",
+      "Washington Wizards",
+      "Milwaukee Bucks",
+      "Detroit Pistons",
+      "Memphis Grizzlies",
+      "Orlando Magic"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Jonas Jerebko",
+    "teams": [
+      "Detroit Pistons",
+      "Boston Celtics",
+      "Utah Jazz",
+      "Golden State Warriors"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Marquis Daniels",
+    "teams": [
+      "Dallas Mavericks",
+      "Indiana Pacers",
+      "Boston Celtics",
+      "Sacramento Kings",
+      "Milwaukee Bucks"
+    ],
+    "era": "modern",
+    "position": "G/F"
+  },
+  {
+    "name": "Reggie Evans",
+    "teams": [
+      "Seattle SuperSonics",
+      "Denver Nuggets",
+      "Philadelphia 76ers",
+      "Toronto Raptors",
+      "Los Angeles Clippers",
+      "Brooklyn Nets",
+      "Sacramento Kings"
+    ],
+    "era": "modern",
+    "position": "F"
+  },
+
+  {
+    "name": "Malcolm Thomas",
+    "teams": [
+      "San Antonio Spurs",
+      "Golden State Warriors",
+      "Chicago Bulls",
+      "Utah Jazz",
+      "Philadelphia 76ers"
+    ],
+    "era": "modern",
+    "position": "F/C"
+  },
+  {
+    "name": "Donald Sloan",
+    "teams": [
+      "Atlanta Hawks",
+      "New Orleans Hornets",
+      "Cleveland Cavaliers",
+      "Indiana Pacers",
+      "Brooklyn Nets"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Jeff Ayres",
+    "teams": [
+      "Portland Trail Blazers",
+      "Indiana Pacers",
+      "San Antonio Spurs",
+      "Los Angeles Clippers"
+    ],
+    "era": "modern",
+    "position": "F/C"
+  },
+  {
+    "name": "Tony Wroten",
+    "teams": ["Memphis Grizzlies", "Philadelphia 76ers"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Diante Garrett",
+    "teams": ["Phoenix Suns", "Utah Jazz", "Toronto Raptors"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Jerome Jordan",
+    "teams": ["New York Knicks", "Brooklyn Nets"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Josh Harrellson",
+    "teams": ["New York Knicks", "Miami Heat"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Alan Williams",
+    "teams": ["Phoenix Suns", "Brooklyn Nets"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Sean Kilpatrick",
+    "teams": [
+      "Brooklyn Nets",
+      "Milwaukee Bucks",
+      "Los Angeles Clippers",
+      "Chicago Bulls"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Briante Weber",
+    "teams": [
+      "Memphis Grizzlies",
+      "Miami Heat",
+      "Golden State Warriors",
+      "Charlotte Hornets",
+      "Houston Rockets"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "Isaiah Canaan",
+    "teams": [
+      "Houston Rockets",
+      "Philadelphia 76ers",
+      "Chicago Bulls",
+      "Phoenix Suns",
+      "Minnesota Timberwolves",
+      "Milwaukee Bucks"
+    ],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "James Michael McAdoo",
+    "teams": ["Golden State Warriors", "Philadelphia 76ers"],
+    "era": "modern",
+    "position": "F"
+  },
+  {
+    "name": "Festus Ezeli",
+    "teams": ["Golden State Warriors", "Portland Trail Blazers"],
+    "era": "modern",
+    "position": "C"
+  },
+  {
+    "name": "Archie Goodwin",
+    "teams": ["Phoenix Suns", "New Orleans Pelicans", "Brooklyn Nets"],
+    "era": "modern",
+    "position": "G"
+  },
+  {
+    "name": "K.J. McDaniels",
+    "teams": [
+      "Philadelphia 76ers",
+      "Houston Rockets",
+      "Brooklyn Nets",
+      "Toronto Raptors"
+    ],
+    "era": "modern",
+    "position": "G/F"
+  }
+]

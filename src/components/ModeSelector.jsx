@@ -92,14 +92,28 @@ export function ModeSelector({ onModeSelect }) {
       {/* ── Divider ── */}
       <div className="led-divider" style={{ width: "100%", maxWidth: "300px" }} />
 
-      {/* ── Random Mode (ghost) ── */}
+      {/* ── Hard Mode (Journeyman) ── */}
       <button
         id="mode-random"
         className="btn-ghost"
         onClick={() => onModeSelect("random")}
-        style={{ fontSize: "12px", letterSpacing: "0.18em", opacity: 0.7 }}
+        onMouseEnter={() => setHovered("random")}
+        onMouseLeave={() => setHovered(null)}
+        style={{ 
+          fontSize: "12px", 
+          letterSpacing: "0.18em", 
+          opacity: hovered === "random" ? 1 : 0.9,
+          color: "var(--nba-red)",
+          border: `1px solid ${hovered === "random" ? "var(--nba-red)" : "rgba(200, 16, 46, 0.2)"}`,
+          padding: "var(--space-md) var(--space-lg)",
+          borderRadius: "var(--radius-sm)",
+          background: hovered === "random" ? "rgba(200, 16, 46, 0.1)" : "rgba(200, 16, 46, 0.03)",
+          transition: "all 0.2s ease",
+          transform: hovered === "random" ? "scale(1.02)" : "scale(1)",
+          boxShadow: hovered === "random" ? "0 4px 20px rgba(200, 16, 46, 0.2)" : "none",
+        }}
       >
-        ◈ RANDOM DRAFT — FULL ROSTER
+        ◈ ELITE JOURNEYMAN DRAFT — HARD MODE
       </button>
     </main>
   );

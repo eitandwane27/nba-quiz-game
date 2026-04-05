@@ -5,7 +5,7 @@ import React from "react";
  * Left: Logo/Title in Bebas Neue.
  * Right: Stat blocks — Score, Streak, Mistakes — styled as LED scoreboard panels.
  */
-export const GameHeader = ({ score, mistakes, streak, gameState }) => {
+export const GameHeader = ({ score, mistakes, streak, gameState, gameType }) => {
   return (
     <header
       style={{
@@ -80,26 +80,30 @@ export const GameHeader = ({ score, mistakes, streak, gameState }) => {
             <span className="stat-block__value">{streak}</span>
           </div>
 
-          {/* Mistakes */}
-          <div className="stat-block stat-block--red">
-            <span className="stat-block__label">Lives</span>
-            <span
-              className="stat-block__value"
-              style={{ letterSpacing: "0.05em", fontSize: "20px" }}
-            >
-              {Array.from({ length: 3 }).map((_, i) => (
-                <span
-                  key={i}
-                  style={{
-                    opacity: i < mistakes ? 0.15 : 1,
-                    transition: "opacity 0.3s ease",
-                  }}
-                >
-                  ❤️
-                </span>
-              ))}
-            </span>
-          </div>
+          {/* Mistakes — hidden for Time Attack (no lives concept) */}
+          {gameType !== "time_attack" && (
+            <div className="stat-block stat-block--red">
+              <span className="stat-block__label">
+                {gameType === "sudden_death" ? "Life" : "Lives"}
+              </span>
+              <span
+                className="stat-block__value"
+                style={{ letterSpacing: "0.05em", fontSize: "20px" }}
+              >
+                {Array.from({ length: gameType === "sudden_death" ? 1 : 3 }).map((_, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      opacity: i < mistakes ? 0.15 : 1,
+                      transition: "opacity 0.3s ease",
+                    }}
+                  >
+                    ❤️
+                  </span>
+                ))}
+              </span>
+            </div>
+          )}
         </div>
       )}
     </header>
