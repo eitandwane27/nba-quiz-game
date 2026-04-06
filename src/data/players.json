@@ -1,7 +1,12 @@
 [
   {
     "name": "LeBron James",
-    "teams": ["Cleveland Cavaliers", "Miami Heat", "Los Angeles Lakers"],
+    "teams": [
+      "Cleveland Cavaliers",
+      "Miami Heat",
+      "Cleveland Cavaliers",
+      "Los Angeles Lakers"
+    ],
     "era": "modern",
     "position": "F"
   },
@@ -17,7 +22,8 @@
       "Oklahoma City Thunder",
       "Golden State Warriors",
       "Brooklyn Nets",
-      "Phoenix Suns"
+      "Phoenix Suns",
+      "Houston Rockets"
     ],
     "era": "modern",
     "position": "F"
@@ -76,14 +82,12 @@
     "era": "modern",
     "position": "G"
   },
-
   {
     "name": "Ja Morant",
     "teams": ["Memphis Grizzlies"],
     "era": "modern",
     "position": "G"
   },
-
   {
     "name": "Kawhi Leonard",
     "teams": ["San Antonio Spurs", "Toronto Raptors", "LA Clippers"],
@@ -209,7 +213,6 @@
     "era": "modern",
     "position": "F"
   },
-
   {
     "name": "Anthony Davis",
     "teams": [
@@ -400,7 +403,6 @@
     "era": "modern",
     "position": "G"
   },
-
   {
     "name": "Bogdan Bogdanovic",
     "teams": ["Sacramento Kings", "Atlanta Hawks"],
@@ -536,7 +538,6 @@
     "era": "modern",
     "position": "G/F"
   },
-
   {
     "name": "Lonnie Walker IV",
     "teams": ["San Antonio Spurs", "Los Angeles Lakers", "Brooklyn Nets"],

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { GameHeader } from "./components/GameHeader";
 import { Quiz } from "./components/Quiz";
+import { ClassicGame } from "./components/ClassicGame";
 import { ModeSelector } from "./components/ModeSelector";
 import { GameTypeSelector } from "./components/GameTypeSelector";
-import { fetchDynamicQuestions } from "./services/quizService";
+import { fetchDynamicQuestions, fetchClassicPhaseData, buildMcqFromPlayers } from "./services/quizService";
 
 export default function App() {
   const [gameState, setGameState] = useState("menu"); // 'menu', 'mode_select', 'game_type_select', 'loading', 'playing', 'game_over'
@@ -15,6 +16,8 @@ export default function App() {
   const [highestStreak, setHighestStreak] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questions, setQuestions] = useState([]);
+  // Classic mode phase data
+  const [classicPhaseData, setClassicPhaseData] = useState(null);
 
   const handleModeSelect = (mode) => {
     setGameMode(mode);
@@ -29,10 +32,19 @@ export default function App() {
     setStreak(0);
     setHighestStreak(0);
     setQuestionIndex(0);
+    setClassicPhaseData(null);
 
-    const numToFetch = type === "time_attack" ? 100 : 10;
-    const fetchedQuestions = await fetchDynamicQuestions(numToFetch, gameMode);
-    setQuestions(fetchedQuestions);
+    if (type === "classic") {
+      // Classic uses the 3-phase pipeline
+      const phaseData = await fetchClassicPhaseData(18, gameMode);
+      const mcqQuestions = buildMcqFromPlayers(phaseData.mcqPlayers, phaseData.allTeams);
+      setClassicPhaseData({ ...phaseData, mcqQuestions });
+    } else {
+      const numToFetch = type === "time_attack" ? 100 : 10;
+      const fetchedQuestions = await fetchDynamicQuestions(numToFetch, gameMode);
+      setQuestions(fetchedQuestions);
+    }
+
     setGameState("playing");
   };
 
@@ -167,7 +179,25 @@ export default function App() {
         </main>
       )}
 
-      {gameState === "playing" && (
+      {gameState === "playing" && gameType === "classic" && classicPhaseData && (
+        <ClassicGame
+          mcqQuestions={classicPhaseData.mcqQuestions}
+          fitbPlayers={classicPhaseData.fitbPlayers}
+          trailPlayers={classicPhaseData.trailPlayers}
+          score={score}
+          setScore={setScore}
+          mistakes={wrong}
+          setWrong={setWrong}
+          streak={streak}
+          setStreak={setStreak}
+          highestStreak={highestStreak}
+          setHighestStreak={setHighestStreak}
+          onGameOver={handleGameOver}
+          playerPool={classicPhaseData.playerPool}
+        />
+      )}
+
+      {gameState === "playing" && gameType !== "classic" && (
         <Quiz
           questions={questions}
           questionIndex={questionIndex}

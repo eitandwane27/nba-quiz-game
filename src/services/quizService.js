@@ -52,9 +52,59 @@ export async function fetchDynamicQuestions(numQuestions = 4, mode = "random") {
   }
 }
 
+// ─── Classic Mode: Raw Player Pool Fetcher ────────────────────────────────────
+
+/**
+ * Returns a shuffled array of raw player objects for Classic mode.
+ * All three phases (MCQ, FITB, Franchise Trail) operate on this same pool.
+ * Phases 2 & 3 only use players with >=2 teams (sequencing needs options).
+ *
+ * @param {number} totalCount  - total players needed across all phases
+ * @param {'legends'|'modern'|'random'} mode - game mode
+ * @returns {{ mcqPlayers: Player[], fitbPlayers: Player[], trailPlayers: Player[], allTeams: string[] }}
+ */
+export async function fetchClassicPhaseData(totalCount = 18, mode = "random") {
+  try {
+    const allPlayers = [...players, ...legends, ...hardModePlayers];
+    let pool = [];
+
+    if (mode === "random") {
+      pool = hardModePlayers;
+    } else if (mode === "legends") {
+      pool = legends;
+    } else {
+      pool = players.filter((p) => p.era === "modern");
+    }
+
+    if (pool.length === 0) throw new Error(`No players found for mode: ${mode}`);
+
+    const allTeams = [...new Set(allPlayers.flatMap((p) => p.teams))];
+    const shuffled = shuffle(pool);
+
+    // Phase 3 (Franchise Trail) needs players with at least 2 teams to be meaningful
+    const trailEligible = shuffled.filter((p) => p.teams.length >= 2);
+    const trailPlayers = trailEligible.slice(0, 3);
+    const trailNames = new Set(trailPlayers.map((p) => p.name));
+
+    // Remaining pool (excluding trail players) is split between Phase 1 & 2
+    const remaining = shuffled.filter((p) => !trailNames.has(p.name));
+    const mcqPlayers = remaining.slice(0, 10);  // Phase 1: 10 MCQ
+    const fitbPlayers = remaining.slice(10, 15); // Phase 2: 5 FITB
+
+    return { mcqPlayers, fitbPlayers, trailPlayers, allTeams, playerPool: pool };
+  } catch (error) {
+    console.error("Error generating classic phase data:", error);
+    return { mcqPlayers: [], fitbPlayers: [], trailPlayers: [], allTeams: [] };
+  }
+}
+
 // ─── Question Builder ─────────────────────────────────────────────────────────
 
-function buildQuestions(selectedPlayers, allTeams) {
+/**
+ * Builds MCQ question objects from raw player data.
+ * Exported so ClassicGame can build Phase 1 questions from the shared player pool.
+ */
+export function buildMcqFromPlayers(selectedPlayers, allTeams) {
   return selectedPlayers.map((player) => {
     // Pick one random team from the player's teams array as the "correct" answer
     const correctTeam = player.teams[Math.floor(Math.random() * player.teams.length)];
@@ -75,8 +125,13 @@ function buildQuestions(selectedPlayers, allTeams) {
       answer: correctTeam,
       metadata: {
         position: player.position,
-        era: player.era
-      }
+        era: player.era,
+      },
     };
   });
+}
+
+// Internal alias for existing callers within this file
+function buildQuestions(selectedPlayers, allTeams) {
+  return buildMcqFromPlayers(selectedPlayers, allTeams);
 }
